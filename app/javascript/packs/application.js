@@ -15,7 +15,30 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+window.scroll_bottom = function() {
+    if (('#messages').length > 0) {
+        var element = document.getElementById("messages");
+        element.scrollTop = element.scrollHeight
+    }
+}
+
+window.submit_message = function()  {
+    $('#message_body').on('keydown', function(e) {
+        if (e.keyCode == 13) {
+            $('button').click();
+            e.target.value = "";
+        };
+    });
+};
+
+
+
+
 //$(document).on("turbolinks:load", () => $(".ui.dropdown").dropdown());
 
 $(document).on('turbolinks:load', function(){     $(".ui.dropdown").dropdown();  
-$('.message .close').on('click', function(){ $(this).closest('.message').transition('fade')   }); });
+$('.message .close').on('click', function(){ $(this).closest('.message').transition('fade')   });
+    submit_message();
+    scroll_bottom();
+})
+

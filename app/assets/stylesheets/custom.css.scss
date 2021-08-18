@@ -11,6 +11,17 @@
      margin-top: 20px;
  }
 
+ #messages {
+     height: 15em;
+     overflow: auto;
+ }
+
  h1 {
      margin-top: 10cm;
+ }
+
+ .input {
+     button {
+         display: none;
+     }
  }
